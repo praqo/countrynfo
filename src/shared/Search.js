@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Search() {
   const [inputValue, setInputValue] = useState("");
+  const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(inputValue);
+    history.push(`/search?q=${inputValue.replace(/ /g, "+")}`);
   };
   const handleInputChange = (e) => {
     console.log(e.currentTarget.value);
