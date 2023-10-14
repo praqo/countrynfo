@@ -14,10 +14,19 @@ function Search() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="">Search For Country</label>
-      <input type="text" onChange={handleInputChange} value={inputValue} />
-      <button type="submit">Submit</button>
+    <form onSubmit={handleSubmit} className="search-form">
+      <label htmlFor="" className="search-label">
+        Search for a country
+      </label>
+      <input
+        className="search-input"
+        type="text"
+        onChange={handleInputChange}
+        value={inputValue}
+      />
+      <button class="submit-button" type="submit">
+        Search
+      </button>
     </form>
   );
 }

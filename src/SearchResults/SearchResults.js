@@ -37,7 +37,15 @@ export function SearchResults() {
     return (
       <div>
         {searchData.map((item) => {
-          return <h3 key={item.alpha2Code}>{item.name}</h3>;
+          return (
+            <div className="result-country" key={item.alpha2Code}>
+              <div
+                className="result-flag"
+                style={{ background: `url(${item.flag})` }}
+              ></div>
+              <h4 className="result title">{item.name}</h4>
+            </div>
+          );
         })}
       </div>
     );

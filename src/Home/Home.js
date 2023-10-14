@@ -1,12 +1,11 @@
 import React from "react";
-import ProductCard from "./ProductCard";
 import Search from "../shared/Search";
+import heroImage from "./world.jpg";
 
 export function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <ProductCard />
+    <div className="home-hero" style={{ backgroundImage: `url(${heroImage})` }}>
+      <h1 class="hero-title">Countrinfo</h1>
       <Search />
     </div>
   );
