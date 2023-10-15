@@ -5,7 +5,7 @@ import heroImage from "./world.jpg";
 export function Home() {
   return (
     <div className="home-hero" style={{ backgroundImage: `url(${heroImage})` }}>
-      <h1 class="hero-title">Countrinfo</h1>
+      <h1 className="hero-title">Countrinfo</h1>
       <Search />
     </div>
   );
