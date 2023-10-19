@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "../shared/useQuery";
+import { useHistory } from "react-router-dom";
+
 const url = "https://restcountries.com/v2/name/";
 
 export function SearchResults() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
   const query = useQuery();
+  const history = useHistory();
 
   const searchQuery = query.get("q");
 
@@ -18,6 +21,12 @@ export function SearchResults() {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleClick = (e) => {
+    const countryCode = e.currentTarget.dataset.country;
+
+    history.push(`/country?alpha=${countryCode}`);
   };
 
   useEffect(() => {
@@ -41,7 +50,11 @@ export function SearchResults() {
             {searchData.map((item) => {
               return (
                 <div className="grid-item" key={item.alpha2Code}>
-                  <div className="result-country">
+                  <div
+                    className="result-country"
+                    onClick={handleClick}
+                    data-country={item.alpha2Code}
+                  >
                     <div
                       className="result-flag"
                       style={{ backgroundImage: `url(${item.flags[0]})` }}
