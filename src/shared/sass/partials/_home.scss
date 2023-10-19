@@ -1,6 +1,6 @@
 .home-hero {
   align-items: center;
-  color: #fff;
+  color: $white-0;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,10 +29,10 @@
 }
 
 .home-hero .submit-button {
-  background: #099cd4;
+  background: $blue-3;
   border: none;
   border-radius: 25px;
-  color: #fff;
+  color: $white-0;
   cursor: pointer;
   font-size: 15px;
   padding: 7px;

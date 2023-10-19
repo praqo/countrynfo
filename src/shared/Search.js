@@ -6,6 +6,12 @@ function Search() {
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!inputValue.replace(/ /g, "")) {
+      setInputValue("");
+      return;
+    }
+
     history.push(`/search?q=${inputValue.replace(/ /g, "+")}`);
   };
   const handleInputChange = (e) => {
@@ -23,6 +29,7 @@ function Search() {
         type="text"
         onChange={handleInputChange}
         value={inputValue}
+        required
       />
       <button className="submit-button" type="submit">
         Search

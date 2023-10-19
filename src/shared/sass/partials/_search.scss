@@ -1,6 +1,35 @@
+.search-results {
+  background-image: url("../../world.jpg");
+  min-height: 100vh;
+  padding: 30px 0;
+}
+
+.result-country {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 25px;
+  width: 100%;
+}
+
+.result-country:hover {
+  background-color: $blue-3;
+  cursor: pointer;
+}
+
 .result-flag {
   background-position: center center;
   background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  display: inline-block;
   height: 50px;
   width: 50px;
+}
+
+.result-title {
+  color: $white-0;
+  max-width: 250px;
+  text-align: center;
 }

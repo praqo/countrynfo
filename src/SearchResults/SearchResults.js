@@ -35,18 +35,24 @@ export function SearchResults() {
 
   if (searchData.length) {
     return (
-      <div>
-        {searchData.map((item) => {
-          return (
-            <div className="result-country" key={item.alpha2Code}>
-              <div
-                className="result-flag"
-                style={{ background: `url(${item.flag})` }}
-              ></div>
-              <h4 className="result title">{item.name}</h4>
-            </div>
-          );
-        })}
+      <div className="search-results">
+        <div className="container">
+          <div className="grid-container transparent-background">
+            {searchData.map((item) => {
+              return (
+                <div className="grid-item" key={item.alpha2Code}>
+                  <div className="result-country">
+                    <div
+                      className="result-flag"
+                      style={{ backgroundImage: `url(${item.flags[0]})` }}
+                    ></div>
+                    <h4 className="result-title">{item.name}</h4>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }

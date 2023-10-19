@@ -1,6 +1,6 @@
 import React from "react";
 import Search from "../shared/Search";
-import heroImage from "./world.jpg";
+import heroImage from "../shared/world.jpg";
 
 export function Home() {
   return (
