@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Search() {
+function Search({ placeholder }) {
   const [inputValue, setInputValue] = useState("");
   const history = useHistory();
   const handleSubmit = (e) => {
@@ -29,6 +29,7 @@ function Search() {
         type="text"
         onChange={handleInputChange}
         value={inputValue}
+        placeholder={placeholder ? placeholder : null}
         required
       />
       <button className="submit-button" type="submit">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "../shared/useQuery";
+import Loader from "../shared/Loader";
 
 const url = "https://restcountries.com/v2/alpha/";
 
@@ -27,69 +28,63 @@ export function CountryPage() {
   console.log(searchData);
 
   if (isLoading) {
-    return (
-      <div>
-        <h3>...Loading</h3>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (searchData.length || Object.keys(searchData).length) {
     return (
       <div className="country-page">
-        <div className="container">
-          <div className="country-content">
-            <div className="country-side-bar">
-              <div className="country-flag">
-                <img
-                  src={searchData.flags[0]}
-                  alt=""
-                  className="country-flag-image"
-                />
-              </div>
-              <h4 className="country-name">{searchData.name}</h4>
+        <div className="country-content">
+          <div className="country-side-bar">
+            <div className="country-flag">
+              <img
+                src={searchData.flags[0]}
+                alt=""
+                className="country-flag-image"
+              />
             </div>
-            <div className="country-info">
-              <table className="table-fill">
-                <tbody className="table-hover">
-                  {Object.keys(searchData).map((key) => {
-                    return (
-                      <tr key={`${key}${searchData[key]}`}>
-                        <td className="text-left">{key}</td>
-                        <td className="text-left">
-                          {Array.isArray(searchData[key])
-                            ? searchData[key].map((item) => {
-                                const itemVal =
-                                  item instanceof Object ? (
-                                    Object.keys(item).map((items) => {
-                                      return (
-                                        <div key={items}>
-                                          {items}: {item[items]}
-                                        </div>
-                                      );
-                                    })
-                                  ) : (
-                                    <div key={item}>{item}</div>
-                                  );
-
-                                return itemVal;
-                              })
-                            : searchData[key] instanceof Object
-                            ? Object.keys(searchData[key]).map((el) => {
-                                return (
-                                  <div key={el}>
-                                    {el}: {searchData[key][el]}
-                                  </div>
+            <h4 className="country-name">{searchData.name}</h4>
+          </div>
+          <div className="country-info">
+            <table className="table-fill">
+              <tbody className="table-hover">
+                {Object.keys(searchData).map((key) => {
+                  return (
+                    <tr key={`${key}${searchData[key]}`}>
+                      <td className="text-left">{key}</td>
+                      <td className="text-left">
+                        {Array.isArray(searchData[key])
+                          ? searchData[key].map((item) => {
+                              const itemVal =
+                                item instanceof Object ? (
+                                  Object.keys(item).map((items) => {
+                                    return (
+                                      <div key={items}>
+                                        {items}: {item[items]}
+                                      </div>
+                                    );
+                                  })
+                                ) : (
+                                  <div key={item}>{item}</div>
                                 );
-                              })
-                            : searchData[key].toString()}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+
+                              return itemVal;
+                            })
+                          : searchData[key] instanceof Object
+                          ? Object.keys(searchData[key]).map((el) => {
+                              return (
+                                <div key={el}>
+                                  {el}: {searchData[key][el]}
+                                </div>
+                              );
+                            })
+                          : searchData[key].toString()}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
