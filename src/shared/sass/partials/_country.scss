@@ -1,10 +1,16 @@
 .country-content {
+  background-color: $white-2;
   display: flex;
+  overflow: hidden;
 }
 
 .country-side-bar {
   flex-shrink: 0;
   width: 40%;
+}
+.country-name {
+  font-size: 1.3em;
+  padding: 0 0 0 15px;
 }
 
 .country-flag-image {
@@ -13,15 +19,15 @@
 
 .country-info {
   flex: 1 1 auto;
+  height: calc(100vh - 70px);
+  overflow: auto;
 }
 
 .table-fill {
-  background: white;
+  background: $white-0;
   border-radius: 3px;
   border-collapse: collapse;
-  height: 320px;
   margin: auto;
-  max-width: 600px;
   padding: 5px;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
@@ -98,6 +104,8 @@ td {
   font-size: 18px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #c1c3d1;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 td:last-child {
@@ -126,4 +134,20 @@ td.text-center {
 
 td.text-right {
   text-align: right;
+}
+
+@media (max-width: 950px) {
+  .country-content {
+    display: block;
+    overflow: visible;
+  }
+
+  .country-side-bar {
+    width: 100%;
+  }
+
+  .country-info {
+    height: auto;
+    overflow: visible;
+  }
 }

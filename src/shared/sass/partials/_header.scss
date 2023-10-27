@@ -1,0 +1,94 @@
+.main-header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  height: 70px;
+  line-height: 73px;
+  font-size: 13px;
+  background-color: $white-2;
+}
+
+.header-logo {
+  background-image: url("../../compass.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 50px;
+  min-width: 115px;
+  height: 70px;
+  border-right: 1px solid $white-3;
+  position: relative;
+}
+
+.logo-placeholder {
+  position: absolute;
+  left: -999999px;
+}
+
+.header-search {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 115px;
+  width: calc(100% - 115px);
+  height: 70px;
+  border-bottom: 1px solid $white-3;
+  background-color: $white-2;
+  font-weight: 300;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+
+.main-header .search-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.main-header .search-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+}
+
+.main-header .submit-button {
+  background-color: $white-2;
+  border: none;
+  color: $white-0;
+  cursor: pointer;
+  position: relative;
+  height: 100%;
+  display: block;
+}
+
+.main-header .submit-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../../search.png) no-repeat bottom;
+  background-position: center center;
+  background-size: 50%;
+}
+
+.main-header .search-input {
+  display: flex;
+  flex: 1;
+  height: 69px;
+  padding: 0 20px;
+  border: 0;
+  background-color: transparent;
+  font-size: 13px;
+  text-transform: uppercase;
+  line-height: normal;
+}

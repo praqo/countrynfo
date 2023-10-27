@@ -38,7 +38,7 @@ export function CountryPage() {
           <div className="country-side-bar">
             <div className="country-flag">
               <img
-                src={searchData.flags[0]}
+                src={searchData.flag}
                 alt=""
                 className="country-flag-image"
               />

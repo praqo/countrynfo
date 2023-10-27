@@ -30,8 +30,7 @@ body {
 }
 
 .grid-item {
-  flex: 1 1 auto;
-  width: 33%;
+  width: calc(100% / 3);
 }
 
 .flex-center {
@@ -41,7 +40,7 @@ body {
 
 @media (max-width: 715px) {
   .grid-item {
-    width: 50%;
+    width: calc(100% / 2);
   }
 }
 

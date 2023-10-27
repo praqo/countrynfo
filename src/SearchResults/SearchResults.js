@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "../shared/useQuery";
 import { useHistory } from "react-router-dom";
+import Loader from "../shared/Loader";
 
 const url = "https://restcountries.com/v2/name/";
 
 export function SearchResults() {
+  const query = useQuery();
   const [isLoading, setIsLoading] = useState(true);
   const [searchData, setSearchData] = useState([]);
-  const query = useQuery();
-  const history = useHistory();
+  const [searchQuery, setSearchQuery] = useState(query.get("q"));
 
-  const searchQuery = query.get("q");
+  const history = useHistory();
 
   const fetchData = async () => {
     try {
@@ -30,16 +31,19 @@ export function SearchResults() {
   };
 
   useEffect(() => {
+    if (searchQuery === query.get("q")) {
+      return;
+    } else {
+      setSearchQuery(query.get("q"));
+    }
+  }, [searchQuery, query]);
+
+  useEffect(() => {
     fetchData(); // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  console.log(searchData);
+  }, [searchQuery]);
 
   if (isLoading) {
-    return (
-      <div>
-        <h3>...Loading</h3>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (searchData.length) {
@@ -57,7 +61,7 @@ export function SearchResults() {
                   >
                     <div
                       className="result-flag"
-                      style={{ backgroundImage: `url(${item.flags[0]})` }}
+                      style={{ backgroundImage: `url(${item.flag})` }}
                     ></div>
                     <h4 className="result-title">{item.name}</h4>
                   </div>
