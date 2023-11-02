@@ -25,7 +25,6 @@ export function CountryPage() {
   useEffect(() => {
     fetchData(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(searchData);
 
   if (isLoading) {
     return <Loader />;

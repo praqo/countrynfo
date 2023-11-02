@@ -14,6 +14,7 @@ export function SearchResults() {
   const history = useHistory();
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch(url + searchQuery);
       const data = await response.json();

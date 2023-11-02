@@ -17,7 +17,6 @@ function Search({ placeholder }) {
     setInputValue("");
   };
   const handleInputChange = (e) => {
-    console.log(e.currentTarget.value);
     setInputValue(e.currentTarget.value);
   };
 
