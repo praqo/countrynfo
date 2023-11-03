@@ -75,5 +75,9 @@ export function SearchResults() {
     );
   }
 
-  return <h3>No Results</h3>;
+  return (
+    <div className="no-results">
+      <h3>No Results</h3>
+    </div>
+  );
 }
